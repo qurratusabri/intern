@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+    <title>Form</title>
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 70px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100%;
+            background-color: transparent;
+            backdrop-filter: blur(50px);
+            border-right: 2px solid rgba(225, 225, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 6px 14px;
+            transition: width 0.5s ease;
+            z-index: 10;
+        }
+
+        .sidebar.active {
+            width: 260px;
+        }
+
+        .sidebar .logo-menu {
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+
+        .sidebar .logo-menu .menu {
+            font-size: 25px;
+            color: black;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .sidebar.active .logo-menu .menu {
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 25%;
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: left 0.5s;
+        }
+
+        .sidebar.active .toggle-btn {
+            left: 80%;
+        }
+
+        .sidebar .list {
+            margin-top: 10px;
+        }
+
+        .list-item {
+            list-style: none;
+            height: 50px;
+            margin: 5px 0;
+        }
+
+        .list-item a {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background 0.5s;
+        }
+
+        .list-item a:hover,
+        .list-item.active a {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .link-name {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .sidebar.active .link-name {
+            opacity: 1;
+        }
+
+        /* Table */
+        .center-table {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(240, 240, 240, 0.5);
+            color: black;
+            margin-top: 30px;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+            .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+          max-width: 800px;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          margin-top: 70px;
+          margin-left: 400px;
+        }
+
+        #example {
+            width: 100%;
+            padding-top: 10px;
+            color: black;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        #example th,
+        #example td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Button */
+        .btn {
+            background: grey;
+            color: white;
+            font-size: 1.2em;
+            padding: 5px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: grey;
+        }
+
+        /* Misc */
+        h1 {
+            color: black;
+            text-shadow: 0 0 5px #999;
+            font-size: 50px;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+        // Toggle sidebar
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.toggle-btn').addEventListener('click', function () {
+                document.querySelector('.sidebar').classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="sidebar">
+        <div class="logo-menu">
+            <h2 class="menu">Menu</h2>
+            <i class="bx bx-menu toggle-btn"></i>
+        </div>
+        <ul class="list">
+            <li class="list-item active">
+                <a href="#">
+                    <i class="bx bx-home"></i>
+                    <span class="link-name" style="--i:1;">Dashboard</span>
+                </a>
+            </li>
+            <li class="list-item">
+                <a href="logout.php">
+                    <i class="bx bx-log-out"></i>
+                    <span class="link-name" style="--i:3;">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <form name="borang" action="form.php" method="POST" enctype="multipart/form-data">
+        <div class="container">
+            
+                <h1>Form</h1>
+                <div class="bf-col-6">
+                    <p>Category</p>
+                    <select id="category" name="category" required>
+                        <option value="licensing">Licensing</option>
+                        <option value="tenant">Tenant</option>
+                        <option value="service">Service</option>
+                        <option value="outsource">Outsource</option>
+                        <option value="biomedical-facilities">Biomedical Facilities</option>
+                        <option value="marcomm">Marcomm</option>
+                        <option value="clinical">Clinical</option>
+                        <option value="support">Support</option>
+                    </select>
+                </div>
+
+                <div class="bf-row">
+                    <div class="bf-col-6">
+                        <p>PIC</p>
+                        <input type="text" name="pic" id="pic" required>
+                    </div>
+                    <div class="bf-col-6">
+                        <p>Service</p>
+                        <input type="text" name="service" id="service" required>
+                    </div>
+                    <div class="bf-col-6">
+                        <p>Company / Act</p>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                </div>
+
+                <div class="bf-row">
+                    <div class="bf-col-6">
+                        <p>Start Date</p>
+                        <input type="date" name="start" id="start" required>
+                    </div>
+                    <div class="bf-col-6">
+                        <p>End Date</p>
+                        <input type="date" name="endDate" id="endDate" required>
+                    </div>
+                </div>
+
+                <div class="bf-row">
+                    <div class="bf-col-6">
+                        <p>SQFT</p>
+                        <input type="text" name="sqft" id="sqft" required>
+                    </div>
+                    <div class="bf-col-6">
+                        <p>Rental</p>
+                        <input type="text" name="rent" id="rent" placeholder="RM" required>
+                    </div>
+                    <div class="bf-col-6">
+                        <p>Upload document</p>
+                        <label for="file">Select file</label>
+                        <input type="file" name="files[]" id="file" multiple>
+                    </div>
+                    <div class="bf-col-6">
+                        <label for="newFileName">Rename file (optional)</label>
+                        <input type="text" name="newFileName" id="newFileName" placeholder="Enter new file name">
+                    </div>
+                    <div class="bf-col-6">
+                        <p>Remarks</p>
+                        <textarea rows="3" cols="20" name="remarks"></textarea>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="btn" name="submit">Next</button>
+                </div>
+            
+        </div>
+    </form>
+</body

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <style type="text/css">
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ced2d5;
+            font-family: Calibri, sans-serif;
+        }
+        .navbar {
+            background: #164fd3;
+            padding: 10px 100px;
+        }
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            width: 50px;
+            height: auto;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        li {
+            position: relative;
+        }
+        li a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+            transition: background 0.3s ease;
+        }
+        li a:hover {
+            background: #112C66;
+            border-radius: 5px;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #164fd3;
+            width: 150px;
+            display: none;
+            flex-direction: column;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown li {
+            width: 100%;
+        }
+        .dropdown li a {
+            padding: 10px;
+            font-size: 18px;
+        }
+        li:hover .dropdown {
+            display: flex;
+        }
+        .label {
+            color: black;
+            text-align: center;
+            font-size: 35px;
+            padding: 150px 10px;
+            font-weight: bold;
+        }
+        .centered-button {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding: 60px;
+        }
+        .button {
+            text-align: center;
+            width: 170px;
+            height: 60px;
+            background: linear-gradient(135deg, #6C63FF, #3B82F6);
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .button:hover {
+            background: linear-gradient(135deg, #3B82F6, #6C63FF);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navdiv">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo">
+            </div>
+            <ul>
+                <li><a href="#">Contact Us</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="label">
+        <h2>TITLE</h2>
+    </div>
+
+    <div class="centered-button">
+        <a href="#"><button class="button" type="button">UPLOAD DOCUMENT</button></a>
+    </div>
+
+    <footer>
+        <p>Copyright © KPJ Healthcare Berhad. 199201015575 (247079-M) All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
